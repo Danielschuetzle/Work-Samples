@@ -1,0 +1,14 @@
+<div class="text-center">
+  <img src="https://i.ibb.co/2thCF9q/house.png" alt="FirebnB" width="125" height="125">
+</div>
+<div class="container">
+  <div class="text-center">
+    <h2> Edit your Booking: </h2>
+  </div>
+  <%= simple_form_for [@flat, @booking] do |f|  %>
+    <%= f.input :status, collection: [ "accepted", "denied" ] %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit class:"btn btn-primary" %>
+  <% end %>
+</div>

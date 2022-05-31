@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="d-flex">
+    <div class ="card border-0">
+      <div class="d-flex my-2 justify-content-between">
+        <div class="column" style="width: 70%">
+
+          <div class="d-flex p-4 border-0 justify-content-between">
+            <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+
+
+            <div class="text-end align-self-start">
+
+              <h4>Price/ Night: </h4>
+              <p><%= @flat.price_per_night %> €</p>
+              <h4>Address: </h4>
+              <p><%= @flat.street %>/ <%= @flat.city %></p>
+
+            </div>
+
+          </div>
+            <div class="px-4">
+
+              <h1 class="pt-3 mt-3 border-top"><%= @flat.title %></h1>
+              <p class="py-3 mt-3 border-top"><%= @flat.description %></p>
+
+            </div>
+        </div>
+
+        <div class="d-flex my-2 justify-content-between column m-3 card border-0">
+
+          <h2>Book your flat here </h2>
+            <%= simple_form_for [@flat, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.button :submit, "Book now", class: "btn btn-primary"%>
+            <% end %>
+
+        <div class="my-2">
+          <div style="width: 100%; height: 300px;"
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @markers.to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+  </div>
+</div>

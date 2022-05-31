@@ -1,0 +1,16 @@
+<div class="text-center">
+  <img src="https://i.ibb.co/2thCF9q/house.png" alt="FirebnB" width="125" height="125">
+</div>
+
+<div class="container">
+  <h1 class="text-center">My Bookings:</h1>
+  <div class="d-flex flex-column text-center align-items-center">
+    <% @bookings.each do |booking| %>
+      <div class="card p-2 m-3 border-0 rounded shadow-sm" style="width: 40%;" >
+        <h4 class="card-title p-2"><%= booking.flat.title %></h4>
+        <p class="card-text"><%= booking.start_date %>/ <%= booking.end_date %></p>
+        <%= link_to "Go to Booking", flat_booking_path(booking.flat,booking), class:"btn btn-primary text-decoration-none" %>
+      </div>
+    <% end %>
+  </div>
+</div>

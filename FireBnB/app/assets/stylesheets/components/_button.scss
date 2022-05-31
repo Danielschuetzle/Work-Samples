@@ -1,0 +1,11 @@
+.btn-primary {
+  background-color: $fire-red;
+  opacity: 80%;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: $fire-red;
+  opacity: 100%;
+  transition: 0.5s;
+}
